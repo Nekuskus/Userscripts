@@ -21,7 +21,7 @@
         if (both != 0) {
             let percentage = (first / (both + first)) * 100
 
-            let percentageText = ` (${percentage.toFixed(1)}%)`.padStart(8, ' ')
+            let percentageText = ` (${percentage.toFixed(1)}%)`.padStart(9, ' ')
 
             first_el.textContent += percentageText
 
