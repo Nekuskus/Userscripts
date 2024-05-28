@@ -2,8 +2,8 @@
 // @name         Advent of Code Solve Percentages
 // @namespace    http://tampermonkey.net/
 // @version      2023-12-09
-// @description  Calculates how many 
-// @author       You
+// @description  Calculates the percentage of participants who have only solved part 1 of a day
+// @author       kuskus.dev (Nekuskus)
 // @match        https://adventofcode.com/*/stats
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
