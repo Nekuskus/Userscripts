@@ -33,14 +33,21 @@
 
         Array.from(list.children).forEach(grade => {
             let num = parseInt(grade.textContent.includes('/') ? grade.textContent.split('/')[1] : grade.textContent)
-            if (!num) return
-            if (num > 6 || num < 1) return
+            if (!num // not a grade
+                || num > 6 // too high
+                || num < 1 // too low
+                || parseFloat(grade.textContent.includes('/') ? grade.textContent.split('/')[1] : grade.textContent) != num) {
+                // floating point values are usually placeholders, such as dates or test results
+                return
+            }
+
+
             let description = grade.getAttribute('data-qtip')
-            if(!description) return
+            if (!description) return
 
             let idx = description.search('Waga: ')
             let weight = parseInt(description.substring(idx + 6)) // Cuts off after integer end
-            if(weight == 0) return
+            if (weight == 0) return
 
             if (grade.textContent.includes('+')) {
                 num += PLUS;
