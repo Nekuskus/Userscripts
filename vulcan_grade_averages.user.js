@@ -9,7 +9,9 @@
 // @grant        none
 // ==/UserScript==
 
-(function () {
+(async function () {
+    // The Vulcan website has a very slow launch, need to wait before querying
+    await new Promise(resolve => setTimeout(resolve, 3000))
 
     // Sanity check, no URL for /grades, have to check for the specific /App subpage
     // Note that /App auto-loads into the previous used view on F5 refresh, so use that if this script did not generate the averages on first load
@@ -32,7 +34,7 @@
         Array.from(list.children).forEach(grade => {
             let num = parseInt(grade.textContent.includes('/') ? grade.textContent.split('/')[1] : grade.textContent)
             if (!num) return
-
+            if (num > 6 || num < 1) return
             let description = grade.getAttribute('data-qtip')
             if(!description) return
 
@@ -48,7 +50,7 @@
 
             sum += num * weight;
             count += weight;
-            console.log(grade.textContent, num, weight)
+            // console.log(grade.textContent, num, weight)
         })
 
         let weighted = (sum / count).toFixed(2)
