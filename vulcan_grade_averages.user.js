@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      2024-05-28
 // @description  Calculates grade averages for each class in the Vulcan online gradebook
-// @author       kuskus.dev (Nekuskus)
+// @author       kuskus.dev (https://github.com/Nekuskus)
 // @match        https://uonetplus-uczen.vulcan.net.pl/*/*/App
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
@@ -13,8 +13,8 @@
     // The Vulcan website has a very slow launch, need to wait before querying
     await new Promise(resolve => setTimeout(resolve, 3000))
 
-    // Sanity check, no URL for /grades, have to check for the specific /App subpage
-    // Note that /App auto-loads into the previous used view on F5 refresh, so use that if this script did not generate the averages on first load
+    // Sanity check; no specific endpoint for /grades, have to check for the specific /App view
+    // Note that /App auto-loads into the previously used view on F5 refresh, so use that if this script did not generate the averages on first load
     let test_label = document.getElementById('ext-element-176')
     if (!test_label || test_label.innerText != "Oceny częściowe") return
 

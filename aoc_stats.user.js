@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      2023-12-09
 // @description  Calculates the percentage of participants who have only solved part 1 of a day
-// @author       kuskus.dev (Nekuskus)
+// @author       kuskus.dev (https://github.com/Nekuskus)
 // @match        https://adventofcode.com/*/stats
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
