@@ -10,12 +10,16 @@
 // ==/UserScript==
 
 (async function () {
-    // The Vulcan website has a very slow launch, need to wait before querying
-    await new Promise(resolve => setTimeout(resolve, 3000))
+    let test_label = null
+
+    while(!test_label) {
+        test_label = document.getElementById('ext-element-176')
+        await new Promise(resolve => setTimeout(resolve, 500))
+    }
 
     // Sanity check; no specific endpoint for /grades, have to check for the specific /App view
     // Note that /App auto-loads into the previously used view on F5 refresh, so use that if this script did not generate the averages on first load
-    let test_label = document.getElementById('ext-element-176')
+    
     if (!test_label || test_label.innerText != "Oceny częściowe") return
 
     const PLUS = 0.33;
